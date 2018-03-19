@@ -1,0 +1,45 @@
+# TextMate tutorial: http://manual.macromates.com/en/language_grammars
+
+# Regex to convert keys to unquoted: '(include|match|captures|begin|end|beginCaptures|endCaptures|name|patterns|0|1|2|3|4|5|6|7|8|9|comment|fileTypes|scopeName|repository|contentName|firstLineMatch|foldingStartMarker|foldingStopMarker)':
+
+scopeName: 'source.mesa' # <scope> should be a short, unique indicator for the language ("js", "php", "c", etc.)
+name: 'Mesa inlist highlighter' # The title that will show up in grammar selection and on your status bar.
+fileTypes: [
+  'inlist',
+  '0_part1',
+  'inlist_pgstar',
+  'inlist_project'
+]
+firstLineMatch: '' # A regular expression that is matched against the first line of the document when Atom is trying to decide if the grammar is appropriate. Useful for shell scripts, mostly.
+foldingStartMarker: '&' # A regular expression that checks for the start of a foldable area (such as `{`).
+foldingStopMarker: '/\\s' # A regular expression that checks for the end of a foldable area (such as `}`). If both folding markers are matched in the same line, there will be no foldable area.
+patterns: [ # An array of individual pattern declarations.
+  {
+   match= '&[\\w_]+'
+   name= 'entity.name.type'
+  }
+  {
+    match='!.+'
+    name= 'comment.line.line'
+  }
+  {
+  match: "\\s+([\\w_\\(\\)]+)\\s*(=)\\s*([\\w\\.\\d']+)"
+  captures:
+    0:
+      name: 'support.type'
+    1:
+      name: 'keyword.operator'
+    2:
+      name: 'string.quoted'
+  }
+]
+repository: # An array of rules. If you're going to be referencing one bit of code over and over again, stick it here so that you can edit all in one place.
+  ruleName: # Can be anything.
+    {
+      name: ''
+      match: ''
+      end: ''
+      endCaptures:
+        0:
+          name: ''
+    }
