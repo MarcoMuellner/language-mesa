@@ -23,7 +23,7 @@ patterns: [ # An array of individual pattern declarations.
     name= 'comment.line.line'
   }
   {
-  match: "\\s+([\\w_\\(\\)]+)\\s*(=)\\s*([\\w\\.\\d']+)"
+  match: "\\s+([\\w_\\(\\)]+)\\s*(=)\\s*([\\w\\.\\d'-]+)"
   captures:
     0:
       name: 'support.type'
