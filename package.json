@@ -1,7 +1,7 @@
 {
   "name": "language-mesa",
   "main": "./lib/language-mesa",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A simple highlighter for Mesa inlist files",
   "keywords": [],
   "repository": "https://github.com/muma7490/language-mesa",
